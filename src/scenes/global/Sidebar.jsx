@@ -110,14 +110,14 @@ const Sidebar = () => {
             </Typography>
             <Item
               title="Administrative Boundary"
-              to="/"
+              to="/admboundary"
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="Public WMS"
-              to="/sentinel-time-series"
+              to="/publicwms"
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
