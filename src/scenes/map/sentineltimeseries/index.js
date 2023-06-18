@@ -2,7 +2,8 @@ import React from 'react';
 import { MapContainer, LayersControl, WMSTileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const { BaseLayer, Overlay } = LayersControl;
+const { BaseLayer } = LayersControl;
+
 const wmsSentinelUrl = 'https://s2maps-tiles.eu/wms';
 const sentinelLayers = {
   '2021': 's2cloudless-2021_3857',
