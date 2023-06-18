@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapContainer, LayersControl, WMSTileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import LeafletControlGeocoder from '../../../component/LeafletControlGeocoder';
 
 const { BaseLayer } = LayersControl;
 
@@ -22,6 +23,8 @@ function SentinelTimeSeries() {
         style={{ height: '100vh', width: '100%' }}
         zoomControl={false} // Disable the zoom control
       >
+        <LeafletControlGeocoder />
+
         <LayersControl position="topleft"> {/* Position the LayersControl on the top left corner */}
           {Object.entries(sentinelLayers).map(([year, layerName]) => (
             <BaseLayer key={year} name={year} checked={year === '2021'}>

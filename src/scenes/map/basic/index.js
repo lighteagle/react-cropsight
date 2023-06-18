@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapContainer, LayersControl, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import LeafletControlGeocoder from '../../../component/LeafletControlGeocoder';
 
 const { BaseLayer } = LayersControl;
 
@@ -20,6 +21,7 @@ function BasicMap() {
             />
           </BaseLayer>
         </LayersControl>
+        <LeafletControlGeocoder />
       </MapContainer>
     </div>
   );
