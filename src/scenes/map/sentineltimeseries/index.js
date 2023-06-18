@@ -1,28 +1,41 @@
-import React, { useEffect } from 'react';
-import L from 'leaflet';
+import React from 'react';
+import { MapContainer, LayersControl, WMSTileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const SentinelTimeSeries = () => {
-  useEffect(() => {
-    // Create a map instance and specify the container element
-    const map = L.map('map').setView([51.505, -0.09], 13);
-
-    // Create a tile layer for the map background
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
-      maxZoom: 18,
-    }).addTo(map);
-
-    // Create a marker and add it to the map
-    L.marker([51.5, -0.09]).addTo(map).bindPopup('A marker');
-
-    // Clean up the map when the component is unmounted
-    return () => {
-      map.remove();
-    };
-  }, []);
-
-  return <div id="map" style={{ height: '100vh' }}></div>;
+const { BaseLayer, Overlay } = LayersControl;
+const wmsSentinelUrl = 'https://s2maps-tiles.eu/wms';
+const sentinelLayers = {
+  '2021': 's2cloudless-2021_3857',
+  '2020': 's2cloudless-2020_3857',
+  '2019': 's2cloudless-2019_3857',
+  '2018': 's2cloudless-2018_3857',
+  '2016': 's2cloudless_3857',
 };
+
+function SentinelTimeSeries() {
+  return (
+    <div>
+      <MapContainer
+        center={[0, 0]}
+        zoom={2}
+        style={{ height: '100vh', width: '100%' }}
+        zoomControl={false} // Disable the zoom control
+      >
+        <LayersControl position="topleft"> {/* Position the LayersControl on the top left corner */}
+          {Object.entries(sentinelLayers).map(([year, layerName]) => (
+            <BaseLayer key={year} name={year} checked={year === '2021'}>
+              <WMSTileLayer
+                url={wmsSentinelUrl}
+                layers={layerName}
+                format="image/png"
+                transparent={true}
+              />
+            </BaseLayer>
+          ))}
+        </LayersControl>
+      </MapContainer>
+    </div>
+  );
+}
 
 export default SentinelTimeSeries;
