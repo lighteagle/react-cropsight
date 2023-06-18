@@ -106,7 +106,7 @@ const Sidebar = () => {
             />
 
             <Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
-              DATA MANAGEMENT
+              DATA
             </Typography>
             <Item
               title="Administrative Boundary"
