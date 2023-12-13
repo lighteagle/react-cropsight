@@ -95,7 +95,7 @@ function ForestArea() {
           ))}
 
           
-          <Overlay name="Global map of Forest Cover for year 2020" zIndex={10}>
+          <Overlay checked name="Global map of Forest Cover for year 2020" zIndex={10}>
             <WMSTileLayer url={wmsUrl2020} {...wmsOptions2020} />
           </Overlay>
           <Overlay name="Forest Mask 2019" zIndex={11}>
