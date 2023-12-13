@@ -7,6 +7,7 @@ import { ColorModeContext, useMode } from "./theme";
 import BasicMap from "./scenes/map/basic";
 import SentinelTimeSeries from "./scenes/map/sentineltimeseries";
 import CarbonEmission from "./scenes/map/carbonemission";
+import ForestArea from "./scenes/map/forestarea";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -23,7 +24,8 @@ function App() {
             <Routes>
               <Route path="/" element={<BasicMap />} />
               <Route path="/sentinel-time-series" element={<SentinelTimeSeries />} />
-              <Route path="/global-forest-change" element={<CarbonEmission />} />
+              <Route path="/forest-area" element={<ForestArea />} />
+              <Route path="/carbon-emission" element={<CarbonEmission />} />
             </Routes>
           </main>
         </div>

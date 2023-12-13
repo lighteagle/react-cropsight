@@ -98,8 +98,15 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Global Forest Change"
-              to="/global-forest-change"
+              title="Forest Area"
+              to="/forest-area"
+              icon={<MapOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Carbon Emission"
+              to="/carbon-emission"
               icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
